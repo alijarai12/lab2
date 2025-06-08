@@ -14,7 +14,6 @@ on:
         type: string
 
 jobs:
-
   job2:
     if: ${{ github.event.inputs['run_job'] == 'true' }}
     runs-on: ubuntu-latest
