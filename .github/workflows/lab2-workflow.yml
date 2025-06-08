@@ -14,9 +14,14 @@ on:
         type: string
 
 jobs:
+
   job2:
     if: ${{ github.event.inputs.run_job == 'true' }}
     runs-on: ubuntu-latest
     steps:
       - name: Printing Custom Message
         run: echo "${{ github.event.inputs.custom_message }}"
+
+      - name: Printing run-job boolean value
+        if: ${{ github.event.inputs.run_job == 'true' || github.event.inputs.run_job }}
+        run: echo "run_job value is: ${{ github.event.inputs.run_job }}"
