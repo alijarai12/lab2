@@ -23,4 +23,6 @@ jobs:
 
       - name: Printing run-job boolean value
         if: ${{ github.event.inputs.run_job == 'true' || github.event.inputs.run_job }}
-        run: echo 'run_job value is: ${{ github.event.inputs.run_job }}'
+        run: |
+          echo "run_job value is:"
+          echo "${{ github.event.inputs.run_job }}"
