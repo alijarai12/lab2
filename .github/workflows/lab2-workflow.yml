@@ -6,12 +6,13 @@ on:
       run_job:
         description: 'Run Specific Job'
         required: false
-        default: false
-        type: boolean
+        default: 'false'
       custom_message:
         description: 'Enter a custom message'
         required: true
-        type: string
+
+env:
+  ACTIONS_STEP_DEBUG: true 
 
 jobs:
   job2:
@@ -22,7 +23,6 @@ jobs:
         run: echo "${{ github.event.inputs.custom_message }}"
 
       - name: Printing run-job boolean value
-        if: ${{ github.event.inputs.run_job == 'true' || github.event.inputs.run_job }}
+        if: ${{ github.event.inputs.run_job == 'true' }}
         run: |
-          echo "run_job value is:"
-          echo "${{ github.event.inputs.run_job }}"
+          echo "run_job value is: ${{ github.event.inputs.run_job }}"
